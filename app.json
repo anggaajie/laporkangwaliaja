@@ -1,36 +1,52 @@
 {
   "expo": {
-    "name": "laporkangwaliaja",
+    "name": "LaporKang Wali Aja",
     "slug": "laporkangwaliaja",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "laporkangwaliaja",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "description": "Aplikasi untuk melaporkan masalah dengan fitur chat, lokasi, dan media.",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Aplikasi ini memerlukan akses kamera untuk mengambil foto laporan.",
+        "NSLocationWhenInUseUsageDescription": "Aplikasi ini memerlukan akses lokasi untuk membagikan posisi Anda dalam laporan.",
+        "NSPhotoLibraryUsageDescription": "Aplikasi ini memerlukan akses galeri untuk mengunggah foto atau video laporan.",
+        "UIBackgroundModes": ["fetch", "remote-notification"]
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "backgroundColor": "#E6F0FA"
+      },
+      "package": "com.laporkangwaliaja",
+      "permissions": [
+        "CAMERA",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "RECEIVE_BOOT_COMPLETED",
+        "VIBRATE"
+      ]
     },
-    "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
-    },
+    "platforms": ["android", "ios"],
     "plugins": [
-      "expo-router",
+      "expo-camera",
+      "expo-location",
+      "expo-image-picker",
+      "expo-notifications",
       [
         "expo-splash-screen",
         {
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#f8f9fa"
         }
       ]
     ],
